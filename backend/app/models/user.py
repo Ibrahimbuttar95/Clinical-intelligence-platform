@@ -1,10 +1,31 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column
+from sqlalchemy import Integer
+from sqlalchemy import String
+
 from app.db.base import Base
 
 class User(Base):
+
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
-    tier = Column(String, default="free")
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    email = Column(
+        String,
+        unique=True,
+        nullable=False
+    )
+
+    hashed_password = Column(
+        String,
+        nullable=False
+    )
+
+    tier = Column(
+        String,
+        default="free"
+    )
