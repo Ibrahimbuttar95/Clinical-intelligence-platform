@@ -1,6 +1,6 @@
-def process_voice(text: str):
+def process_voice_text(text: str):
+
     return {
-        "recognized_text": text,
-        "language": "auto",
+        "transcript": text,
         "confidence": 0.95
     }
