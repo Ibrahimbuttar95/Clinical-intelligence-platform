@@ -1,15 +1,15 @@
-def normalize(text: str) -> str:
-    text = text.lower()
+def normalize(text: str):
 
     replacements = {
-        "sar dard": "headache",
-        "pet dard": "abdominal pain",
-        "bukhar": "fever",
-        "chakkar": "dizziness",
-        "kamzori": "fatigue"
+        "بخار": "fever",
+        "سر درد": "headache",
+        "کھانسی": "cough",
+        "سانس": "breathing",
+        "کمزوری": "fatigue",
+        "پیٹ درد": "abdominal pain"
     }
 
-    for k, v in replacements.items():
-        text = text.replace(k, v)
+    for ur, en in replacements.items():
+        text = text.replace(ur, en)
 
-    return text
+    return text.lower()
