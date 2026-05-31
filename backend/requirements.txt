@@ -5,5 +5,7 @@ psycopg2-binary
 python-jose
 passlib[bcrypt]
 pydantic
-razorpay
+email-validator
+redis
+celery
 python-multipart
