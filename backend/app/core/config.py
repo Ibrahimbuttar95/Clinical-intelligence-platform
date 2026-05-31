@@ -1,15 +1,10 @@
-import os
+# core/config.py
 
-class Settings:
-    SECRET_KEY = os.getenv("SECRET_KEY", "dev_secret")
-    ALGORITHM = "HS256"
+PAYFAST_MERCHANT_ID = ""
+PAYFAST_SECRET = ""
 
-    DATABASE_URL = os.getenv(
-        "DATABASE_URL",
-        "sqlite:///./local.db"
-    )
+JAZZCASH_MERCHANT_ID = ""
+JAZZCASH_PASSWORD = ""
 
-    RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "")
-    RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "")
-
-settings = Settings()
+EASYPAISA_STORE_ID = ""
+EASYPAISA_HASH_KEY = ""
