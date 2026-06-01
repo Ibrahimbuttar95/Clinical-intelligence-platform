@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
+
 import 'screens/splash_screen.dart';
 
 void main() {
-  runApp(const ClinicalApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(
+    const ClinicalIntelligenceApp(),
+  );
 }
 
-class ClinicalApp extends StatelessWidget {
-  const ClinicalApp({super.key});
+class ClinicalIntelligenceApp extends StatelessWidget {
+  const ClinicalIntelligenceApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Clinical Intelligence',
+      title: 'Clinical Intelligence Platform',
+
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+
+      home: const SplashScreen(),
     );
   }
 }
