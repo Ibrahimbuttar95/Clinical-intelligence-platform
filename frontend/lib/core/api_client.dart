@@ -1,18 +1,20 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 class ApiClient {
 
   Future<dynamic> post(
-      String url,
-      Map<String, dynamic> body) async {
+    String url,
+    Map<String, dynamic> body,
+  ) async {
 
     final response =
         await http.post(
       Uri.parse(url),
       headers: {
         "Content-Type":
-            "application/json"
+            "application/json",
       },
       body: jsonEncode(body),
     );
@@ -21,4 +23,5 @@ class ApiClient {
       response.body,
     );
   }
+
 }
