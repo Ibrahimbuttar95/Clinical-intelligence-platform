@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'login_screen.dart';
 
-class SplashScreen
-    extends StatefulWidget {
-
-  const SplashScreen({
-    super.key
-  });
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashScreen>
-      createState() =>
-          _SplashScreenState();
+  State<SplashScreen> createState() =>
+      _SplashScreenState();
 }
 
 class _SplashScreenState
@@ -22,7 +18,7 @@ class _SplashScreenState
     super.initState();
 
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 3),
       () {
         Navigator.pushReplacement(
           context,
@@ -35,6 +31,37 @@ class _SplashScreenState
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center,
+          children: const [
+
+            Icon(
+              Icons.health_and_safety,
+              size: 90,
+            ),
+
+            SizedBox(height: 20),
+
+            Text(
+              "Clinical Intelligence Platform",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight:
+                    FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
   @override
   Widget build(
       BuildContext context) {
