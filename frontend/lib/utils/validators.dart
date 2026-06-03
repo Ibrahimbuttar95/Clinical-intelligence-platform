@@ -1,6 +1,7 @@
 class Validators {
 
-  static String? email(String value) {
+  static String? email(
+      String value) {
 
     if (!value.contains("@")) {
       return "Invalid email";
@@ -13,7 +14,7 @@ class Validators {
       String value) {
 
     if (value.length < 8) {
-      return "Password too short";
+      return "Minimum 8 characters";
     }
 
     return null;
