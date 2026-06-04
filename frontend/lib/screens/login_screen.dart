@@ -1,40 +1,21 @@
-import 'package:flutter/material.dart';
+final authRepo =
+    AuthRepository();
 
-import 'register_screen.dart';
-import 'home_screen.dart';
+final result =
+    await authRepo.login(
+        emailController.text,
+        passwordController.text);
 
-class LoginScreen
-    extends StatefulWidget {
+if (context.mounted) {
 
-  const LoginScreen({
-    super.key,
-  });
-
-  @override
-  State<LoginScreen>
-      createState() =>
-          _LoginScreenState();
-}
-
-class _LoginScreenState
-    extends State<LoginScreen> {
-
-  final emailController =
-      TextEditingController();
-
-  final passwordController =
-      TextEditingController();
-
-  bool loading = false;
-
-  @override
-  Widget build(
-      BuildContext context) {
-
-    return Scaffold(
-
-      appBar: AppBar(
-        title:
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (_) =>
+          const HomeScreen(),
+    ),
+  );
+}        title:
             const Text("Login"),
       ),
 
