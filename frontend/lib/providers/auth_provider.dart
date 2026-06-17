@@ -8,14 +8,26 @@ class AuthProvider extends ChangeNotifier {
 
   bool isLoggedIn = false;
 
-  void login(
-    String userEmail,
-    String jwtToken,
-  ) {
+  Future<void> login(
+  String userEmail,
+  String jwtToken,
+) async {
 
-    email = userEmail;
+  final session =
+      SessionManager();
 
-    token = jwtToken;
+  await session.saveToken(
+    jwtToken,
+  );
+
+  email = userEmail;
+
+  token = jwtToken;
+
+  isLoggedIn = true;
+
+  notifyListeners();
+  }
 
     isLoggedIn = true;
 
