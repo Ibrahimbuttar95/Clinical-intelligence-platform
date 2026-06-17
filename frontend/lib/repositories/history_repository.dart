@@ -1,16 +1,13 @@
-import '../core/api_client.dart';
-import '../core/constants.dart';
+import '../services/history_service.dart';
 
 class HistoryRepository {
 
-  final ApiClient _client =
-      ApiClient();
+  final HistoryService service =
+      HistoryService();
 
-  Future<dynamic> getHistory() async {
+  Future<dynamic> getHistory()
+      async {
 
-    return await _client.post(
-      "${AppConstants.apiBaseUrl}/api/history",
-      {},
-    );
+    return await service.getHistory();
   }
 }
