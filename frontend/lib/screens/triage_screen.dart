@@ -61,13 +61,21 @@ class _TriageScreenState
               child:
                   ElevatedButton(
 
-                onPressed: () {
+                onPressed: () async {
 
-                  setState(() {
+  final repo =
+      TriageRepository();
 
-                    result =
-                        "Assessment completed";
-                  });
+  final response =
+      await repo.analyze(
+    symptomsController.text,
+  );
+
+  setState(() {
+
+    result =
+        response.toString();
+  });
                 },
 
                 child:
