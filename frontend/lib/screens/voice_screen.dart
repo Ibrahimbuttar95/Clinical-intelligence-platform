@@ -1,40 +1,96 @@
 import 'package:flutter/material.dart';
+import '../voice/speech_engine.dart';
+class VoiceScreen extends StatefulWidget { const VoiceScreen({super.key});
+@override State createState() => _VoiceScreenState(); }
+class _VoiceScreenState extends State {
+final SpeechEngine speech = SpeechEngine();
+bool listening = false;
+String transcript = "Voice transcript appears here";
+@override Widget build(BuildContext context) {
+return Scaffold(
 
-class VoiceScreen extends StatefulWidget {
-  const VoiceScreen({super.key});
+  appBar: AppBar(
+    title: const Text(
+      "Voice Assessment",
+    ),
+  ),
 
-  @override
-  State<VoiceScreen> createState() =>
-      _VoiceScreenState();
-}
+  body: Padding(
+    padding: const EdgeInsets.all(16),
 
-class _VoiceScreenState
-    extends State<VoiceScreen> {
+    child: Column(
 
-  bool listening = false;
+      crossAxisAlignment:
+          CrossAxisAlignment.stretch,
 
-  String transcript =
-      "Voice transcript appears here";
+      children: [
 
-  @override
-  Widget build(BuildContext context) {
+        Card(
+          child: Padding(
+            padding:
+                const EdgeInsets.all(20),
 
-    return Scaffold(
-
-      appBar: AppBar(
-        title: const Text(
-          "Voice Assessment",
+            child: Text(
+              transcript,
+              style:
+                  const TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ),
         ),
-      ),
 
-      body: Padding(
-        padding:
-            const EdgeInsets.all(16),
+        const SizedBox(
+          height: 30,
+        ),
 
-        child: Column(
-          children: [
+        Center(
+          child: FloatingActionButton(
 
-            Card(
+            onPressed: () async {
+
+              if (!listening) {
+
+                final initialized =
+                    await speech.initialize();
+
+                if (initialized) {
+
+                  await speech.startListening(
+                    (text) {
+
+                      setState(() {
+
+                        transcript =
+                            text;
+                      });
+                    },
+                  );
+                }
+
+              } else {
+
+                await speech.stopListening();
+              }
+
+              setState(() {
+
+                listening =
+                    !listening;
+              });
+            },
+
+            child: Icon(
+              listening
+                  ? Icons.stop
+                  : Icons.mic,
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
+);            Card(
               child: Padding(
                 padding:
                     const EdgeInsets.all(
