@@ -9,6 +9,8 @@ import '../screens/triage_screen.dart';
 import '../screens/subscription_screen.dart';
 import '../screens/voice_screen.dart';
 import '../screens/settings_screen.dart';
+import '../screens/onboarding_screen.dart';
+import '../screens/report_screen.dart';
 
 class AppRouter {
 
@@ -69,6 +71,18 @@ switch (settings.name) {
     return MaterialPageRoute(
       builder: (_) =>
           const SettingsScreen(),
+    );
+
+  case "/onboarding":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const OnboardingScreen(),
+    );
+
+  case "/report":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const ReportScreen(),
     );
 
   default:
