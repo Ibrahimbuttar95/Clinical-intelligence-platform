@@ -1,0 +1,23 @@
+{
+"name": "Clinical Intelligence Platform",
+
+"image": "mcr.microsoft.com/devcontainers/universal:2",
+
+"features": {
+"ghcr.io/cirruslabs/flutter:latest": {
+"channel": "stable"
+}
+},
+
+"postCreateCommand": "cd frontend && flutter pub get",
+
+"customizations": {
+"vscode": {
+"extensions": [
+"Dart-Code.flutter",
+"Dart-Code.dart-code",
+"ms-python.python"
+]
+}
+}
+}
