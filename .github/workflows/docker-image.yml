@@ -1,18 +1,21 @@
-name: Docker Image CI
+name: Backend Docker Build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+push:
+branches:
+- main
+workflow_dispatch:
 
 jobs:
+docker:
+runs-on: ubuntu-latest
 
-  build:
+steps:
+  - uses: actions/checkout@v4
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+  - name: Build Backend Docker Image
+    run: |
+      docker build \
+        -f backend/Dockerfile \
+        -t clinical-intelligence-backend \
+        backend
