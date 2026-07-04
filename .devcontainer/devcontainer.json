@@ -1,6 +1,13 @@
 {
   "name": "Clinical Intelligence Platform",
+
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+  "features": {
+    "ghcr.io/devcontainers/features/flutter:1": {
+      "channel": "stable"
+    }
+  },
 
   "customizations": {
     "vscode": {
@@ -10,5 +17,7 @@
         "ms-python.python"
       ]
     }
-  }
+  },
+
+  "postCreateCommand": "cd frontend && flutter pub get"
 }
