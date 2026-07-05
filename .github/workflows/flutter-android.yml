@@ -1,15 +1,9 @@
 name: Build Flutter Android APK
+on: workflow_dispatch:
+push: branches: - main
+jobs: build-apk: runs-on: ubuntu-latest
 
-on:
-workflow_dispatch:
-push:
-branches:
-- main
-
-jobs:
-build-apk:
-runs-on: ubuntu-latest
-
+defaults:
 defaults:
   run:
     working-directory: frontend
