@@ -1,47 +1,96 @@
 import 'package:flutter/material.dart';
 
-class AuthProvider extends ChangeNotifier {
+import '../screens/home_screen.dart';
+import '../screens/login_screen.dart';
+import '../screens/register_screen.dart';
+import '../screens/profile_screen.dart';
+import '../screens/history_screen.dart';
+import '../screens/triage_screen.dart';
+import '../screens/subscription_screen.dart';
+import '../screens/voice_screen.dart';
+import '../screens/settings_screen.dart';
+import '../screens/onboarding_screen.dart';
+import '../screens/report_screen.dart';
 
-  String? token;
+class AppRouter {
 
-  String? email;
+static Route<dynamic> generate(
+RouteSettings settings) {
 
-  bool isLoggedIn = false;
+switch (settings.name) {
 
-  Future<void> login(
-  String userEmail,
-  String jwtToken,
-) async {
+  case "/login":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const LoginScreen(),
+    );
 
-  final session =
-      SessionManager();
+  case "/register":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const RegisterScreen(),
+    );
 
-  await session.saveToken(
-    jwtToken,
-  );
+  case "/home":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const HomeScreen(),
+    );
 
-  email = userEmail;
+  case "/profile":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const ProfileScreen(),
+    );
 
-  token = jwtToken;
+  case "/history":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const HistoryScreen(),
+    );
 
-  isLoggedIn = true;
+  case "/triage":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const TriageScreen(),
+    );
 
-  notifyListeners();
-  }
+  case "/subscription":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const SubscriptionScreen(),
+    );
 
-    isLoggedIn = true;
+  case "/voice":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const VoiceScreen(),
+    );
 
-    notifyListeners();
-  }
+  case "/settings":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const SettingsScreen(),
+    );
 
-  void logout() {
+  case "/onboarding":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const OnboardingScreen(),
+    );
 
-    email = null;
+  case "/report":
+    return MaterialPageRoute(
+      builder: (_) =>
+          const ReportScreen(),
+    );
 
-    token = null;
+  default:
+    return MaterialPageRoute(
+      builder: (_) =>
+          const LoginScreen(),
+    );
+}
 
-    isLoggedIn = false;
-
-    notifyListeners();
-  }
+}
 }
