@@ -1,9 +1,16 @@
-import 'package:flutter/material.dart';
+    import 'package:flutter/material.dart';
 
 import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
 import '../screens/register_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/history_screen.dart';
+import '../screens/triage_screen.dart';
+import '../screens/subscription_screen.dart';
+import '../screens/voice_screen.dart';
+import '../screens/setting_screen.dart';
+import '../screens/onboarding_screen.dart';
+import '../screens/report_screen.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
@@ -11,64 +18,12 @@ class AppRouter {
     "/login": (context) => const LoginScreen(),
     "/register": (context) => const RegisterScreen(),
     "/profile": (context) => const ProfileScreen(),
+    "/history": (context) => const HistoryScreen(),
+    "/triage": (context) => const TriageScreen(),
+    "/subscription": (context) => const SubscriptionScreen(),
+    "/voice": (context) => const VoiceScreen(),
+    "/settings": (context) => const SettingsScreen(),
+    "/onboarding": (context) => const OnboardingScreen(),
+    "/report": (context) => const ReportScreen(),
   };
-}          const HomeScreen(),
-    );
-
-  case "/profile":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const ProfileScreen(),
-    );
-
-  case "/history":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const HistoryScreen(),
-    );
-
-  case "/triage":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const TriageScreen(),
-    );
-
-  case "/subscription":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const SubscriptionScreen(),
-    );
-
-  case "/voice":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const VoiceScreen(),
-    );
-
-  case "/settings":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const SettingsScreen(),
-    );
-
-  case "/onboarding":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const OnboardingScreen(),
-    );
-
-  case "/report":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const ReportScreen(),
-    );
-
-  default:
-    return MaterialPageRoute(
-      builder: (_) =>
-          const LoginScreen(),
-    );
-}
-
-}
 }
