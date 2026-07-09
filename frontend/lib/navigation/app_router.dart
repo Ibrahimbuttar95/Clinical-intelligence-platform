@@ -4,37 +4,15 @@ import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
 import '../screens/register_screen.dart';
 import '../screens/profile_screen.dart';
-import '../screens/history_screen.dart';
-import '../screens/triage_screen.dart';
-import '../screens/subscription_screen.dart';
-import '../screens/voice_screen.dart';
-import '../screens/settings_screen.dart';
-import '../screens/onboarding_screen.dart';
-import '../screens/report_screen.dart';
 
 class AppRouter {
-
-static Route<dynamic> generate(
-RouteSettings settings) {
-
-switch (settings.name) {
-
-  case "/login":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const LoginScreen(),
-    );
-
-  case "/register":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const RegisterScreen(),
-    );
-
-  case "/home":
-    return MaterialPageRoute(
-      builder: (_) =>
-          const HomeScreen(),
+  static Map<String, WidgetBuilder> routes = {
+    "/": (context) => const HomeScreen(),
+    "/login": (context) => const LoginScreen(),
+    "/register": (context) => const RegisterScreen(),
+    "/profile": (context) => const ProfileScreen(),
+  };
+}          const HomeScreen(),
     );
 
   case "/profile":
